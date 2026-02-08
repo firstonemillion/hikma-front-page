@@ -13,9 +13,13 @@
         </header>
 
         <main>This is simple frontpage intented for Haira Chatwoot.</main>
-        
+
         <script>
           (function(d,t) {
+            const defaultWebsiteToken = '3P88Qjr7vZX4frv6s4jZYZUw'
+            const urlParams = new URLSearchParams(window.location.search)
+            const websiteToken = urlParams.get('token') || defaultWebsiteToken
+  
             var BASE_URL="https://haira.safinalab.id";
             var g=d.createElement(t),s=d.getElementsByTagName(t)[0];
             g.src=BASE_URL+"/packs/js/sdk.js";
@@ -23,7 +27,7 @@
             s.parentNode.insertBefore(g,s);
             g.onload=function(){
               window.chatwootSDK.run({
-                websiteToken: '3P88Qjr7vZX4frv6s4jZYZUw',
+                websiteToken,
                 baseUrl: BASE_URL
               })
             }
